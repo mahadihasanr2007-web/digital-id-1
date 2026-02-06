@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadi | Digital ID</title>
+    <style>
+        :root {
+            --cyan: #00f3ff;
+            --pink: #ff007f;
+        }
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        /* Moving Background */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0,243,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: move 20s linear infinite;
+        }
+        @keyframes move { from { transform: translate(0,0); } to { transform: translate(-40px,-40px); } }
+
+        /* Glass Card */
+        .glass-card {
+            position: relative;
+            width: 340px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            z-index: 10;
+        }
+
+        /* Profile Picture with Scan Effect */
+        .profile-container {
+            position: relative;
+            width: 120px; height: 120px;
+            margin: 0 auto 20px;
+        }
+        .profile-container img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--cyan);
+            object-fit: cover;
+            box-shadow: 0 0 15px var(--cyan);
+        }
+        .scan-bar {
+            position: absolute;
+            width: 110%; height: 4px;
+            background: var(--cyan);
+            box-shadow: 0 0 15px var(--cyan);
+            top: 0; left: -5%;
+            animation: scan 3s ease-in-out infinite;
+            z-index: 2;
+        }
+        @keyframes scan { 0%, 100% { top: 0%; } 50% { top: 100%; } }
+
+        h1 { font-size: 1.4rem; margin: 10px 0; letter-spacing: 2px; text-transform: uppercase; }
+        .tag { color: var(--cyan); font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 30px; }
+
+        /* Buttons Style */
+        .link-tree { display: flex; flex-direction: column; gap: 12px; }
+        .link-item {
+            text-decoration: none;
+            color: #fff;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            display: flex; justify-content: space-between;
+        }
+        .link-item:hover {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 20px var(--cyan);
+            transform: scale(1.02);
+        }
+
+        /* Save Button */
+        .save-btn {
+            margin-top: 25px;
+            padding: 15px;
+            background: var(--pink);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            box-shadow: 0 0 15px var(--pink);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        <div class="profile-container">
+            <div class="scan-bar"></div>
+            <img src="https://i.ibb.co.com/QjTNPjz2/Rocktim.jpg" alt="MD. Mahadi Hasan">
+        </div>
+
+        <h1>Md. Mahadi Hasan</h1>
+        <div class="tag">SYSTEM IDENTIFIED: STUDENT</div>
+
+        <div class="link-tree">
+            <a href="tel:01705092157" class="link-item"><span>📞 Mobile</span> <span>01705092157</span></a>
+            <a href="mailto:mahadihasanr31@gmail.com" class="link-item"><span>📧 Email Main</span> <span>Primary</span></a>
+            <a href="https://wa.me/8801705092157" class="link-item"><span>💬 WhatsApp</span> <span>Chat Now</span></a>
+            <a href="https://facebook.com/Md.MahadiHasanRocktim" class="link-item"><span>🔵 Facebook</span> <span>Profile</span></a>
+            <a href="https://instagram.com/rocktim_7" class="link-item"><span>📸 Instagram</span> <span>@rocktim_7</span></a>
+        </div>
+
+        <a href="#" class="save-btn">SAVE TO CONTACTS</a>
+    </div>
+
+</body>
+</html>
